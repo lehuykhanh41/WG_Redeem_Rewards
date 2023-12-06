@@ -85,7 +85,7 @@ document.getElementById("reloadButton").innerHTML = "TRY AGAIN?"
 function redeem() {
   let enteredCode = decipher(document.getElementById("codeField").value);
   if (enteredCode === '' || enteredCode > '24') {
-    document.getElementById("startGacha").innerHTML = "RE-ENTER";
+    document.getElementById("redeemButton").innerHTML = "RE-ENTER";
     document.getElementById("codeField").value = ""
     document.getElementById("codeField").placeholder = "INVALID. ENTER AGAIN:"
   } else {
@@ -117,7 +117,9 @@ function decipher(code) {
       decipheredCode += code[3];
       
     }
-  } 
+  }  else if (code == "TEST_PRIZE_GUARANTEED") {
+    decipheredCode = 15;
+  }
   return decipheredCode;
 }
 
@@ -206,7 +208,6 @@ function generateValidCode(type) {
   return finalCode;
 }
 
-/*
 
 function getCode() {
   console.log("Large Win Code: " + generateValidCode("largeWin"));
@@ -216,5 +217,3 @@ function getCode() {
 }
 
 getCode();
-
-*/
