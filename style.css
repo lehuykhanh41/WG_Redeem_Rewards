@@ -61,7 +61,7 @@ h1 {
   border-radius: 30px;
 }
 
-#startGacha {
+.startGacha {
   margin-top: 15%;
   margin-left: 50%;
   -ms-transform: translate(-50%, -50%);

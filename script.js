@@ -49,7 +49,6 @@ function changeImg(){
 }
 
 function startCycle() {
-
   if (!pressed) {
   let timey = Math.random() * 100 + 2000;
   pressed = true;
@@ -76,9 +75,10 @@ if (codeValue >= 14 && codeValue <= 17) {
 } else {
   document.getElementById("Description").innerHTML = "IT'S A JACK POT ! CONTACT THE MODS IMMEDIATELY FOR REWARDS !";
 }
-
-document.getElementById("startGacha").innerHTML = "FINISH";
+document.getElementById("reloadButton").innerHTML = "TRY AGAIN?"
         }); 
+} else {
+  window.location.reload();
 }
 }
 
@@ -156,8 +156,12 @@ function generateValidCode(type) {
       code[6] = 'c';
   }
 
-  if (type == "win" || type == "W") {
-    wincode = (Math.floor(Math.random() * 10) + 14).toString();
+  if (type == "largeWin") {
+    wincode = (Math.floor(Math.random() * 3) + 21).toString();
+  } else if (type == "mediumWin") {
+    wincode = (Math.floor(Math.random() * 3) + 18).toString();
+  } else if (type == "smallWin") {
+    wincode = (Math.floor(Math.random() * 4) + 14).toString();
   }
   else if (type == "lose" || type == "L") {
     wincode = (Math.floor(Math.random() * 14)).toString();
@@ -192,8 +196,6 @@ function generateValidCode(type) {
           code[7] = wincode[0];
           code[3] = wincode[1];
         }
-
-        console.log("\n" + randomNumber + "\n" + wincode);
   }
   
   let finalCode = "";
@@ -205,9 +207,14 @@ function generateValidCode(type) {
 }
 
 /*
+
 function getCode() {
+  console.log("Large Win Code: " + generateValidCode("largeWin"));
+  console.log("Medium Win Code: " + generateValidCode("mediumWin"));
+  console.log("Small Win Code: " + generateValidCode("smallWin"));
   console.log(generateValidCode("lose"));
 }
 
 getCode();
+
 */
